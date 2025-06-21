@@ -1,0 +1,21 @@
+#moon-container {
+  position: absolute;
+  clip-path: circle();
+  background-color: black;
+  height: 1000px;
+  aspect-ratio: 1/1;
+  transition: all 10s;
+}
+
+#moon {
+    position: relative;
+    aspect-ratio: 1/1;
+    height: 10dvh;
+    margin-top: 10dvh;
+    transition: all infinite;
+}
+
+
+body {
+    background-color: rgb(0, 0, 0);
+}
