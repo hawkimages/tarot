@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: lavender;
+}
+
+.container {
+  width: 25dvw;
+  height: 25dvh;
+  background-color: rebeccapurple;
+  clip-path: circle();
+  transition: all 1s ease;
+}
+
+.container:hover {
+  width: 50dvw;
+  height:50dvh;
+  background-color: rgb(201, 191, 244);
+}
+
+#circle-text {
+  position: absolute;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
