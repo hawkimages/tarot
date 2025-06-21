@@ -1,0 +1,21 @@
+html {
+    display: flex;
+    position: static;
+    background-color:rgb(255, 255, 255);
+    flex-direction: column;
+    justify-content: center;
+}
+
+body {
+    align-content: center;
+    margin-top: 35dvh;
+    margin-bottom: 25svh;
+}
+
+.logo {
+    height: clamp(10rem,45dvw, 65rem);
+    aspect-ratio: 1/1;
+    position: inherit;
+    border: 0px solid;
+}
+
