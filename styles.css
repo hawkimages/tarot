@@ -14,12 +14,14 @@ body {
   background-color: rebeccapurple;
   clip-path: circle();
   transition: all 1s ease;
+  
 }
 
 .container:hover {
   width: 50dvw;
   height:50dvh;
   background-color: rgb(201, 191, 244);
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.5);
 }
 
 #circle-text {
