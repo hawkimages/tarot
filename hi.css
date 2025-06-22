@@ -17,5 +17,6 @@ body {
     aspect-ratio: 1/1;
     position: inherit;
     border: 0px solid;
+    transition: all 2s;
 }
 
