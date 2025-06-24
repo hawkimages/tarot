@@ -39,20 +39,19 @@ html, body {
   overflow: hidden;
 }
 
+.card:active {cursor:grabbing;box-shadow: 0 16px 48px rgba(0,0,0,0.25);}
+#image {
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
 .card-light {
   pointer-events: none; 
   position: absolute;
   inset: 0;
   border-radius: inherit;
   z-index: 2;
-  transition: background 0.15s;
+  transition: background 0.15s ;
   mix-blend-mode: soft-light;
-}
-
-.card:active {
-  cursor: grabbing;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.25);
-}
-#image {
-  pointer-events: none;
 }
