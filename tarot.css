@@ -46,7 +46,7 @@
   aspect-ratio: 2 / 3;
   background: linear-gradient(135deg, #fff 90%, #f6f7fb 100%);
   border-radius: 6%;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 1.5px 10px rgba(0,0,0,0.07);
+  box-shadow: 0 8px 50px rgba(0,0,0,0.22), 0 1.5px 25px rgba(0,0,0,0.07);
   border: none;
   transition: box-shadow 0.2s;
   will-change: transform;

@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // Refresh page when "redraw" button is clicked //
-
+document.getElementById('redraw') 
 
 const card = document.querySelector('.card');
 const cardLight = document.querySelector('.card-light');
