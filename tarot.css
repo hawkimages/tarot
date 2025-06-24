@@ -41,8 +41,8 @@
 }
 
 .card {
-  position: relative;
-  width: min(48dvw, 275px);
+  position: absolute;
+  width: 120px;
   aspect-ratio: 2 / 3;
   background: linear-gradient(135deg, #fff 90%, #f6f7fb 100%);
   border-radius: 6%;
@@ -58,16 +58,20 @@
   /* For 3D effect */
   transform-style: preserve-3d;
   overflow: hidden;
+  transition: transform 0.4s;
+  z-index: 1;
 }
 
 .card-container {
   /* Flexible for multiple cards later */
+  position: relative;
   display: flex;
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 80vh;
+  width: 100dvw;
+  height: 100dvw;
+  margin: 0 auto;
   border: 0px solid red;
 }
 
