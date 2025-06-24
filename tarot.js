@@ -46,3 +46,18 @@ window.addEventListener('touchmove', onPointerMove, {passive:false});
 window.addEventListener('touchend', onPointerUp);
 
 setCardRotation(0, 0);
+
+
+
+const imageCount = 78; // Number of images
+const imageFolder = 'tarotcards/';
+const imageExtension = '.jpg';
+
+function getRandomImagePath() {
+  const randomNum = Math.floor(Math.random() * imageCount) + 1;
+  return `${imageFolder}${randomNum}${imageExtension}`;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('image').src = getRandomImagePath();
+});
