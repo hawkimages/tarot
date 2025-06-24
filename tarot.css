@@ -1,32 +1,53 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  background: #181a1b;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  box-sizing: border-box;
+
+#redraw {
+  height: 5%;
+  width: 25dvw;
+  overflow-wrap: anywhere;
 }
 
-.card-container {
-  /* Flexible for multiple cards later */
+.button {
+  border: 2px solid white;
+  border-radius: 15px;
+  color: white;
+  width: 8dvw;
+  font-family:'Montserrat';
+  font-weight: lighter;
+  background: transparent;
+  max-height: max-content;
+  min-width: 30px;
+  transition: all .15s linear;
+  /*Fully hide words if overflowing*/  
+}
+.button:hover {
+  /*Add glowing effect*/
+  box-shadow: inset 0px 0px 12px;
+}
+
+.controls {
+  /*Center below card-container*/
+  position: fixed;
   display: flex;
-  gap: 2rem;
   justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 80vh;
+  align-items: center;;
+  max-width: min(550px,80dvw);
+  width: clamp(15rem, 70dvw, 1000px);
+  height: min();
+  bottom: 8rem;
+  gap: 5dvw;
+  /*add debug border*/
+  border: 0px solid red;
+  overflow: visible;
+  box-sizing: content-box;
 }
 
 .card {
   position: relative;
-  width: min(28vw, 260px);
+  width: min(48dvw, 275px);
   aspect-ratio: 2 / 3;
   background: linear-gradient(135deg, #fff 90%, #f6f7fb 100%);
-  border-radius: 8%;
+  border-radius: 6%;
   box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 1.5px 10px rgba(0,0,0,0.07);
-  border: 2px solid #e0e0e0;
+  border: none;
   transition: box-shadow 0.2s;
   will-change: transform;
   cursor: grab;
@@ -39,11 +60,25 @@ html, body {
   overflow: hidden;
 }
 
+.card-container {
+  /* Flexible for multiple cards later */
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+  border: 0px solid red;
+}
+
+
+
 .card:active {cursor:grabbing;box-shadow: 0 16px 48px rgba(0,0,0,0.25);}
 #image {
   pointer-events: none;
   user-select: none;
   z-index: 1;
+  scale: 1;
 }
 
 .card-light {
@@ -53,5 +88,17 @@ html, body {
   border-radius: inherit;
   z-index: 2;
   transition: background 0.15s ;
-  mix-blend-mode: soft-light;
+  mix-blend-mode: overlay;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #b5b8b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+

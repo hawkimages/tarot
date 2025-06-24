@@ -12,6 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('image').src = getRandomImagePath();
 });
 
+// Refresh page when "redraw" button is clicked //
+
 
 const card = document.querySelector('.card');
 const cardLight = document.querySelector('.card-light');
@@ -26,8 +28,8 @@ function setCardRotation(x, y) {
 function updateCardLighting(x, y) {
   // x is rotateY (left/right), y is rotateX (up/down)
   // We'll map x and y in [-45, 45] to a percentage
-  const normX = Math.max(-45, Math.min(45, x)) / 45; // -1 to 1
-  const normY = Math.max(-45, Math.min(45, y)) / 45; // -1 to 1
+  const normY = Math.max(-45, Math.min(45, x)) / 45; // -1 to 1
+  const normX = Math.max(-45, Math.min(45, y)) / 45; // -1 to 1
 
   // Calculate light and shadow intensity
   const lightStrength = Math.max(0, normY) * 0.6 + Math.max(0, normX) * 0.4;  // light from top/right
@@ -42,8 +44,8 @@ function updateCardLighting(x, y) {
   const lightAngle = 45 + normX * 25 - normY * 25; // tweak for realism
 
   cardLight.style.background = `
-    linear-gradient(${lightAngle}deg, ${lightColor} 0%, transparent 60%),
-    linear-gradient(${lightAngle + 180}deg, ${shadowColor} 0%, transparent 60%)
+    linear-gradient(${-lightAngle}deg, ${lightColor} 0%, transparent 60%),
+    linear-gradient(${-lightAngle}deg, ${shadowColor} 30%, transparent 60%)
   `;
 }
 
