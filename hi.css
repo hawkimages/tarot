@@ -1,3 +1,22 @@
+.logo {
+    height: clamp(10rem,45dvw, 65rem);
+    aspect-ratio: 1/1;
+    position: relative;
+    border: 0px solid;
+    transition: all 2s;
+}
+
+.h {
+    /* fill :#27105B; */
+    fill: none;
+    stroke-width: 12px;
+    stroke: #27105B;
+    stroke-dashoffset: 0;
+    stroke-dasharray: none;
+    animation: dash 5s linear forwards;
+;
+}
+
 html {
     display: flex;
     position: static;
@@ -11,12 +30,3 @@ body {
     margin-top: 35dvh;
     margin-bottom: 25svh;
 }
-
-.logo {
-    height: clamp(10rem,45dvw, 65rem);
-    aspect-ratio: 1/1;
-    position: inherit;
-    border: 0px solid;
-    transition: all 2s;
-}
-
