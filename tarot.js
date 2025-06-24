@@ -61,3 +61,37 @@ function getRandomImagePath() {
 window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('image').src = getRandomImagePath();
 });
+
+
+
+const cardLight = document.querySelector('.card-light');
+
+function updateCardLighting(x, y) {
+  // x is rotateY (left/right), y is rotateX (up/down)
+  // We'll map x and y in [-45, 45] to a percentage
+  const normX = Math.max(-45, Math.min(45, x)) / 45; // -1 to 1
+  const normY = Math.max(-45, Math.min(45, y)) / 45; // -1 to 1
+
+  // Calculate light and shadow intensity
+  const lightStrength = Math.max(0, normY) * 0.6 + Math.max(0, normX) * 0.4;  // light from top/right
+  const shadowStrength = Math.abs(Math.min(0, normY)) * 0.6 + Math.abs(Math.min(0, normX)) * 0.4; // shadow from bottom/left
+
+  // Light color: a subtle warm white
+  const lightColor = `rgba(255,255,255,${0.18 + 0.38 * lightStrength})`;
+  // Shadow color: a bluish/dark shade
+  const shadowColor = `rgba(30,40,80,${0.18 + 0.38 * shadowStrength})`;
+
+  // Angle: Light from top right, shadow from bottom left
+  const lightAngle = 45 + normX * 25 - normY * 25; // tweak for realism
+
+  cardLight.style.background = `
+    linear-gradient(${lightAngle}deg, ${lightColor} 0%, transparent 60%),
+    linear-gradient(${lightAngle + 180}deg, ${shadowColor} 0%, transparent 60%)
+  `;
+}
+
+// In your setCardRotation function, after setting transform:
+function setCardRotation(x, y) {
+  card.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+  updateCardLighting(x, y);
+}
