@@ -1,0 +1,42 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #181a1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.card-container {
+  /* Flexible for multiple cards later */
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+}
+
+.card {
+  width: min(28vw, 260px);
+  aspect-ratio: 2 / 3;
+  background: linear-gradient(135deg, #fff 90%, #f6f7fb 100%);
+  border-radius: 1.2em;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22), 0 1.5px 10px rgba(0,0,0,0.07);
+  border: 2px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+  will-change: transform;
+  cursor: grab;
+  touch-action: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* For 3D effect */
+  transform-style: preserve-3d;
+}
+.card:active {
+  cursor: grabbing;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+}
