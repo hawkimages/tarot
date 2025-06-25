@@ -12,6 +12,68 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('image').src = getRandomImagePath();
 });
 
+const maxCards = 13;
+const container = document.getElementById('card-container');
+const button = document.getElementById('add');
+
+button.addEventListener('click', () => {
+  const currentCards = container.querySelectorAll('.card').length;
+  if (currentCards >= maxCards) return;
+  const card = container.querySelector('.card').cloneNode(true);
+  // Optionally randomize card content here
+  container.appendChild(card);
+  arrangeCards();
+});
+
+function arrangeCards() {
+  const cards = container.querySelectorAll('.card');
+  const n = cards.length;
+  if (n === 1) {
+    cards[0].style.transform = 'translate(-50%, -50%)'; // center
+    return;
+  }
+
+  // Center card if n == 13 (1 in center, 12 on circle), else all on circle
+  const radius = window.innerWidth/2;
+  let centerCard = null;
+  let perimCount = n;
+
+  if (n === 13) {
+    centerCard = cards[0];
+    centerCard.style.transform = 'translate(-50%, -50%)';
+    centerCard.style.zIndex = 2;
+    perimCount = 12;
+  }
+
+  for (let i = 1; i < n; i++) {
+    let idx = (n === 13) ? i - 1 : i;
+    let angle = (idx / perimCount) * 2 * Math.PI;
+    let x = 50 + Math.cos(angle - Math.PI/2) * radius / 300 * 50;
+    let y = 50 + Math.sin(angle - Math.PI/2) * radius / 300 * 50;
+    cards[i].style.transform = `translate(-50%, -50%) translate(${Math.cos(angle - Math.PI/2) * radius}px, ${Math.sin(angle - Math.PI/2) * radius}px)`;
+    cards[i].style.zIndex = 1;
+  }
+  // If less than 13, arrange all on circle
+  if (n < 13) {
+    for (let i = 0; i < n; i++) {
+      let angle = (i / n) * 2 * Math.PI;
+      cards[i].style.transform = `translate(-50%, -50%) translate(${Math.cos(angle - Math.PI/2) * radius}px, ${Math.sin(angle - Math.PI/2) * radius}px)`;
+      cards[i].style.zIndex = 1;
+    }
+  }
+}
+
+const removeCard = document.getElementById('subtract');
+removeButton.addEventListener('click', () => {
+  const cards = container.querySelectorAll('.card');
+  if (cards.length > 1) { // Keep at least one card
+    container.removeChild(card[cards.length - 1])
+    arrangeCards();
+  }
+})
+
+arrangeCards();
+
 // Refresh page when "redraw" button is clicked //
 document.getElementById('redraw') 
 
@@ -92,54 +154,4 @@ setCardRotation(0, 0);
 
 
 
-const maxCards = 13;
-const container = document.getElementById('card-container');
-const button = document.getElementById('redraw');
-
-button.addEventListener('click', () => {
-  const currentCards = container.querySelectorAll('.card').length;
-  if (currentCards >= maxCards) return;
-  const card = container.querySelector('.card').cloneNode(true);
-  // Optionally randomize card content here
-  container.appendChild(card);
-  arrangeCards();
-});
-
-function arrangeCards() {
-  const cards = container.querySelectorAll('.card');
-  const n = cards.length;
-  if (n === 1) {
-    cards[0].style.transform = 'translate(-50%, -50%)'; // center
-    return;
-  }
-
-  // Center card if n == 13 (1 in center, 12 on circle), else all on circle
-  const radius = 220;
-  let centerCard = null;
-  let perimCount = n;
-
-  if (n === 13) {
-    centerCard = cards[0];
-    centerCard.style.transform = 'translate(-50%, -50%)';
-    centerCard.style.zIndex = 2;
-    perimCount = 12;
-  }
-
-  for (let i = 1; i < n; i++) {
-    let idx = (n === 13) ? i - 1 : i;
-    let angle = (idx / perimCount) * 2 * Math.PI;
-    let x = 50 + Math.cos(angle - Math.PI/2) * radius / 300 * 50;
-    let y = 50 + Math.sin(angle - Math.PI/2) * radius / 300 * 50;
-    cards[i].style.transform = `translate(-50%, -50%) translate(${Math.cos(angle - Math.PI/2) * radius}px, ${Math.sin(angle - Math.PI/2) * radius}px)`;
-    cards[i].style.zIndex = 1;
-  }
-  // If less than 13, arrange all on circle
-  if (n < 13) {
-    for (let i = 0; i < n; i++) {
-      let angle = (i / n) * 2 * Math.PI;
-      cards[i].style.transform = `translate(-50%, -50%) translate(${Math.cos(angle - Math.PI/2) * radius}px, ${Math.sin(angle - Math.PI/2) * radius}px)`;
-      cards[i].style.zIndex = 1;
-    }
-  }
-}
-arrangeCards();
+c
