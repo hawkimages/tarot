@@ -5,6 +5,13 @@ const maxCards = 13;
 const container = document.getElementById('card-container');
 const addBtn = document.getElementById('add');
 const removeBtn = document.getElementById('subtract');
+const containerRect = container.getBoundingClientRect();
+
+window.addEventListener('DOMContentLoaded', () => {
+  card.querySelector('img').src = getRandomImagePath();
+  setCardRotation(0, 0);
+  // arrangeCards();
+});
 
 function getRandomImagePath() {
   const n = Math.floor(Math.random() * imageCount) + 1;
@@ -19,24 +26,24 @@ function randomizeCardImage(card) {
 function arrangeCards() {
   const cards = container.querySelectorAll('.card');
   const n = cards.length;
-  const radius = 220;
+  const radius = Math.min(containerRect.width, containerRect.height) / 2.3;
   if (n === 1) {
-    cards[0].style.transform = 'translate(-50%, -50%)';
+    // cards[0].style.transform = 'translate(-50%, -50%)';
     cards[0].style.zIndex = 2;
     return;
   }
   if (n === 13) {
-    cards[0].style.transform = 'translate(-50%, -50%)';
+    // cards[0].style.transform = 'translate(-50%, -50%)';
     cards[0].style.zIndex = 2;
     for (let i = 1; i < n; i++) {
       let angle = ((i - 1) / 12) * 2 * Math.PI;
-      cards[i].style.transform = `translate(-50%, -50%) translate(${Math.cos(angle - Math.PI/2) * radius}px, ${Math.sin(angle - Math.PI/2) * radius}px)`;
+      cards[i].style.transform = `translate(${Math.cos(angle - Math.PI/2) * radius}px, ${Math.sin(angle - Math.PI/2) * radius}px)`;
       cards[i].style.zIndex = 1;
     }
   } else {
     for (let i = 0; i < n; i++) {
-      let angle = (i / n) * 2 * Math.PI;
-      cards[i].style.transform = `translate(-50%, -50%) translate(${Math.cos(angle - Math.PI/2) * radius}px, ${Math.sin(angle - Math.PI/2) * radius}px)`;
+      let angle = 33 + (i / n) * 2 * Math.PI;
+      cards[i].style.transform = `translate(${Math.cos(angle - Math.PI/2) * radius}px, ${Math.sin(angle - Math.PI/2) * radius}px)`;
       cards[i].style.zIndex = 1;
     }
   }
@@ -102,11 +109,6 @@ card.addEventListener('touchstart', onPointerDown, {passive:false});
 window.addEventListener('touchmove', onPointerMove, {passive:false});
 window.addEventListener('touchend', onPointerUp);
 
-window.addEventListener('DOMContentLoaded', () => {
-  card.querySelector('img').src = getRandomImagePath();
-  setCardRotation(0, 0);
-  arrangeCards();
-});
 
 // Add card
 addBtn.addEventListener('click', () => {

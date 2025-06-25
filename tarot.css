@@ -1,8 +1,10 @@
 
 #redraw {
   height: 5%;
-  width: 25dvw;
-  overflow-wrap: anywhere;
+  width: 30dvw;
+  max-width: 300px;
+  overflow-wrap:normal;
+  box-sizing: border-box;
 }
 
 .button {
@@ -10,13 +12,14 @@
   border-radius: 15px;
   color: white;
   width: 8dvw;
+  font-size: clamp(1rem,5dvw,2rem);
   font-family:'Montserrat';
   font-weight: lighter;
   background: transparent;
   max-height: max-content;
   min-width: 30px;
   transition: all .15s linear;
-  /*Fully hide words if overflowing*/  
+  box-sizing: border-box;
 }
 .button:hover {
   /*Add glowing effect*/
@@ -29,21 +32,23 @@
   display: flex;
   justify-content: center;
   align-items: center;;
-  max-width: min(550px,80dvw);
+  max-width: min(1000px,90dvw);
   width: clamp(15rem, 70dvw, 1000px);
-  height: min();
   bottom: 8rem;
   gap: 5dvw;
   /*add debug border*/
   border: 0px solid red;
   overflow: visible;
-  box-sizing: content-box;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 .card {
   position: absolute;
-  width: 120px;
+  width: 150px;
   aspect-ratio: 2 / 3;
+  /* left: 50%; top: 50%;
+  transform: translate(-50%, -50%); */
   background: linear-gradient(135deg, #fff 90%, #f6f7fb 100%);
   border-radius: 6%;
   box-shadow: 0 8px 50px rgba(0,0,0,0.22), 0 1.5px 25px rgba(0,0,0,0.07);
@@ -60,26 +65,27 @@
   overflow: hidden;
   transition: transform 0.4s;
   z-index: 1;
+  box-sizing: border-box;
 }
+.card:active {cursor:grabbing;box-shadow: 0 16px 48px rgba(0,0,0,0.25);}
 
-.card-container {
+#card-container {
   /* Flexible for multiple cards later */
+  width: min(80dvw,500px);
+  height: min(80dvh,500px);
   position: relative;
   display: flex;
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  width: 600px;
-  height: 600px;
   margin: 0 auto;
   border: 0px solid red;
   overflow: visible;
+  box-sizing: border-box;
 }
 
 
-
-.card:active {cursor:grabbing;box-shadow: 0 16px 48px rgba(0,0,0,0.25);}
-#image {
+.image {
   pointer-events: none;
   user-select: none;
   z-index: 1;
@@ -94,6 +100,7 @@
   z-index: 2;
   transition: background 0.15s ;
   mix-blend-mode: overlay;
+  box-sizing: border-box;
 }
 
 html, body {
