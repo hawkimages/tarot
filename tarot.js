@@ -1,10 +1,10 @@
 const imageCount = 78;
 const imageFolder = 'tarotcards/';
-const imageExtension = '.jpg';
+const imageExtension = '.png';
 const maxCards = 13;
 const container = document.getElementById('card-container');
-const addBtn = document.getElementById('redraw');
-const removeBtn = document.getElementById('remove-card');
+const addBtn = document.getElementById('add');
+const removeBtn = document.getElementById('subtract');
 
 function getRandomImagePath() {
   const n = Math.floor(Math.random() * imageCount) + 1;

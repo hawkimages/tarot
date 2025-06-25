@@ -69,10 +69,11 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
-  width: 100dvw;
-  height: 100dvw;
+  width: 600px;
+  height: 600px;
   margin: 0 auto;
   border: 0px solid red;
+  overflow: visible;
 }
 
 
@@ -82,7 +83,7 @@
   pointer-events: none;
   user-select: none;
   z-index: 1;
-  scale: 1;
+  scale: 1.01;
 }
 
 .card-light {
