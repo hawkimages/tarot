@@ -51,7 +51,7 @@
   transform: translate(-50%, -50%); */
   background: linear-gradient(135deg, #fff 90%, #f6f7fb 100%);
   border-radius: 6%;
-  box-shadow: 0 8px 50px rgba(0,0,0,0.22), 0 1.5px 25px rgba(0,0,0,0.07);
+  box-shadow: 0 8px 50px rgba(0,0,0,0.22)translate(-50%, -50%) ;
   border: none;
   transition: box-shadow 0.2s;
   will-change: transform;
@@ -67,7 +67,7 @@
   z-index: 1;
   box-sizing: border-box;
 }
-.card:active {cursor:grabbing;box-shadow: 0 16px 48px rgba(0,0,0,0.25);}
+.card:active {cursor:grabbing;box-shadow: 0 16px 48px rgba(0,0,0,0.25), translate(-50%, -50%);}
 
 #card-container {
   /* Flexible for multiple cards later */
