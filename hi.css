@@ -1,3 +1,24 @@
+.h {
+    /* fill :#27105B; */
+    stroke-width: 12px;
+    stroke: #27105B;
+    stroke-dashoffset: 1000;
+    stroke-dasharray: 2000;
+    fill:#27105B;
+    fill-opacity:0;
+    /*loop animation*/
+    transition: all linear;
+    animation: dash 5s reverse infinite;
+}
+@keyframes dash {
+    to {
+        stroke-dashoffset: -1000;
+    }
+    5% {
+        fill-opacity: 1;
+    }
+}
+
 .logo {
     height: clamp(10rem,45dvw, 65rem);
     aspect-ratio: 1/1;
@@ -6,16 +27,6 @@
     transition: all 2s;
 }
 
-.h {
-    /* fill :#27105B; */
-    fill: none;
-    stroke-width: 12px;
-    stroke: #27105B;
-    stroke-dashoffset: 0;
-    stroke-dasharray: none;
-    animation: dash 5s linear forwards;
-;
-}
 
 html {
     display: flex;
