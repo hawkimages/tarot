@@ -1,5 +1,27 @@
+.white {z-index: 0;}
+.desert {z-index: 0;}
+.berry {
+    position: relative;
+    transform-origin:center;
+    animation-delay: 5s;
+    animation: flash 1s infinite;
+    transition: all;
+    z-index: 0;
+}
+
+.dot {
+    position: absolute;
+    top: 50%; left: 50%;
+}
+
+@keyframes flash {
+    to {
+        scale: 2;
+    }
+}
+
 .h {
-    /* fill :#27105B; */
+    position: absolute;
     stroke-width: 12px;
     stroke: #27105B;
     stroke-dashoffset: 1000;
@@ -14,17 +36,16 @@
     to {
         stroke-dashoffset: -1000;
     }
-    5% {
+    1% {
         fill-opacity: 1;
     }
 }
 
+
 .logo {
     height: clamp(10rem,45dvw, 65rem);
-    aspect-ratio: 1/1;
     position: relative;
     border: 0px solid;
-    transition: all 2s;
 }
 
 
