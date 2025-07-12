@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="lava.css"> -->
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--body-background);
+}
+
+.bubble {
+  height: 16vh;
+  border-radius: 40%;
+  background: rgba(37, 15, 87, 1);
+  position: absolute;
+  filter: blur(4vh);
+  animation: updown ease-in-out 37s infinite,
+    leftright ease-in-out 23s infinite,
+    morph linear 29s infinite,
+    rotate linear 51s infinite;
+}
+
+.bubble:nth-child(2) {
+  animation: updown ease-in-out 31s infinite,
+    leftright ease-in-out 17s infinite,
+    morph linear 23s infinite,
+    rotate linear 9s infinite;
+}
+
+.bubble:nth-child(3) {
+  animation: updown ease-in-out 43s infinite,
+    leftright ease-in-out 53s infinite,
+    morph linear 29s infinite,
+    rotate linear 31s infinite;
+}
+
+.bubble:nth-child(4) {
+  animation: updown ease-in-out 47s infinite,
+    leftright ease-in-out 59s infinite,
+    morph linear 31s infinite,
+    rotate linear 21s infinite;
+}
+
+.bubble:nth-child(5) {
+  animation: updown ease-in-out 29s infinite,
+    leftright ease-in-out 31s infinite,
+    morph linear 37s infinite,
+    rotate linear 7s infinite;
+}
+
+.bubble:last-child {
+  animation: updown ease-in-out 53s infinite,
+    leftright ease-in-out 14s infinite,
+    morph linear 19s infinite,
+    rotate linear 17s infinite;
+}
+
+
+@keyframes updown {
+  0% {
+    top: 110%;
+  }
+
+  50% {
+    top: 0;
+  }
+
+  100% {
+    top: 110%;
+  }
+}
+
+@keyframes leftright {
+  0% {
+    left: 0;
+  }
+
+  50% {
+    left: 80%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes morph {
+  0% {
+    width: 8vh;
+  }
+
+  50% {
+    width: 80vh;
+    height: 50vh;
+  }
+
+  100% {
+    width: 8vh;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+    </style>
+</head>
+
+<body>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+</body>
+</html>
