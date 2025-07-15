@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarot Application</title>
+  <style>
+    /* General Styles */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      box-sizing: border-box;
+    }
+
+    /* Card Container */
+    #card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      max-width: 90vw;
+      padding: 1rem;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Card Styles */
+    .card {
+      width: 100px;
+      height: 150px;
+      background-color: #dfe4ea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: inherit;
+    }
+
+    /* Controls */
+    .controls {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="card-container"></div>
+  <div class="controls">
+    <button id="spread1">3-Card Spread</button>
+    <button id="spread2">5-Card Spread</button>
+    <button id="spread3">10-Card Spread</button>
+  </div>
+
+  <script>
+    const imageFolder = "path_to_card_images/"; // Replace with your image folder path
+    const imageCount = 78; // Total number of tarot cards
+    const cardContainer = document.getElementById("card-container");
+
+    // Generate a random card image
+    function getRandomCard() {
+      const cardNumber = Math.floor(Math.random() * imageCount) + 1;
+      return `${imageFolder}${cardNumber}.png`; // Assuming images are named 1.png, 2.png, etc.
+    }
+
+    // Draw cards based on the chosen spread
+    function drawCards(cardCount) {
+      cardContainer.innerHTML = ""; // Clear existing cards
+      for (let i = 0; i < cardCount; i++) {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        const img = document.createElement("img");
+        img.src = getRandomCard();
+        img.alt = "Tarot Card";
+        card.appendChild(img);
+        cardContainer.appendChild(card);
+      }
+    }
+
+    // Event listeners for spread buttons
+    document.getElementById("spread1").addEventListener("click", () => drawCards(3));
+    document.getElementById("spread2").addEventListener("click", () => drawCards(5));
+    document.getElementById("spread3").addEventListener("click", () => drawCards(10));
+  </script>
+</body>
+</html>
